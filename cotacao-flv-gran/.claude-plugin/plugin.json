@@ -1,0 +1,7 @@
+{
+  "name": "cotacao-flv-gran",
+  "version": "0.1.0",
+  "description": "Cotacao FLV semanal: compara tabelas dos fornecedores em R$/kg, cherry-picking por item, dispara pedido via WhatsApp.",
+  "author": {"name": "Hugo Gusmao", "email": "hugo@grupoa7.com.br"},
+  "keywords": ["gran","cotacao","flv","compras","ceasa","whatsapp"]
+}

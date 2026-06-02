@@ -1,0 +1,7 @@
+{
+  "name": "monitoramento-jornada-gran",
+  "version": "0.1.0",
+  "description": "Relatorio semanal de monitoramento de jornada Gran + GRSM. Cruza batidas RHID com escala mensal.",
+  "author": {"name": "Hugo Gusmao", "email": "hugo@grupoa7.com.br"},
+  "keywords": ["gran","rhid","jornada","compliance","ponto"]
+}

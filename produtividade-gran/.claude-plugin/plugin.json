@@ -1,0 +1,7 @@
+{
+  "name": "produtividade-gran",
+  "version": "1.4.1",
+  "description": "Análise mensal de produtividade das equipes do Gran Hortifruti — Custo Pessoal vs Margem por equipe (Gran Mesa | Gran Horti). Cruza KW (fat/qtd) + gran_margens.xlsx (custo unitário) + Omie GMPro + folha CLT + diaristas. Output: HTML executivo com 4 abas. Plugin complementar ao survey-gran (compartilha base_classificada.pkl).",
+  "author": {"name": "Hugo Gusmão"},
+  "keywords": ["gran","produtividade","equipe","custo-pessoal","margem","kpi","executivo","sócia"]
+}

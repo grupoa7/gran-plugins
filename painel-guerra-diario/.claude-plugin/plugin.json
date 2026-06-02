@@ -1,0 +1,7 @@
+{
+  "name": "painel-guerra-diario",
+  "version": "0.1.0",
+  "description": "Pipeline diario do Painel de Guerra: consome XLS da SAMSUNG via Dropbox, roda motor v7, render mobile-first e deploy GitHub Pages.",
+  "author": {"name": "Hugo Gusmao", "email": "hugo@grupoa7.com.br"},
+  "keywords": ["gran","painel","bi","operacao","loja"]
+}

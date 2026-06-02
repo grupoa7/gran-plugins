@@ -6,16 +6,80 @@
   },
   "metadata": {
     "description": "Marketplace pessoal do Grupo A7 - skills do Gran Hortifruti, holding e operacao.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "passagem-turno-avaliacao",
       "source": "./passagem-turno-avaliacao",
-      "description": "Avaliacao automatica de cards de Passagem de Turno do Gran Hortifruti via Pipefy. Roteiros diario (13h20) e semanal (qua 13h35).",
+      "description": "Avaliacao automatica dos cards de Passagem de Turno via Pipefy. Roteiros diario (13h20) e semanal (qua 13h35).",
       "version": "0.1.0",
       "author": {"name": "Hugo Gusmao"},
       "keywords": ["gran", "passagem-turno", "pipefy", "lideranca"]
+    },
+    {
+      "name": "survey-gran",
+      "source": "./survey-gran",
+      "description": "Survey semanal Gran: relatorio executivo HTML com 11 abas. Faturamento KW via Chrome MCP local + YoY ajustado por feriado movel.",
+      "version": "0.12.8",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "survey", "vendas", "kw", "yoy"]
+    },
+    {
+      "name": "survey-gran-mesa",
+      "source": "./survey-gran-mesa",
+      "description": "Survey semanal Gran Mesa: relatorio executivo HTML com 7 abas focado nos produtos da equipe de producao (setor GRAN MESA + GRANEL + Padaria Gran). Eixo principal venda.",
+      "version": "2.1.5",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "gran-mesa", "survey", "vendas", "equipe"]
+    },
+    {
+      "name": "produtividade-gran",
+      "source": "./produtividade-gran",
+      "description": "Analise mensal de produtividade das equipes do Gran (Gran Mesa | Gran Horti). Cruza KW + gran_margens + Omie GMPro + folha CLT + diaristas.",
+      "version": "1.4.1",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "produtividade", "custo-pessoal", "margem"]
+    },
+    {
+      "name": "auditoria-caixas-gran",
+      "source": "./auditoria-caixas-gran",
+      "description": "Auditoria semanal de caixas (PDVs) via sistema KW. Detecta cancelamentos suspeitos, sangrias irregulares, padroes de desvio financeiro.",
+      "version": "0.1.0",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "auditoria", "kw", "pdv", "compliance"]
+    },
+    {
+      "name": "painel-guerra-diario",
+      "source": "./painel-guerra-diario",
+      "description": "Pipeline diario do Painel de Guerra: consome XLS extraidos da SAMSUNG via Dropbox, roda motor v7, render mobile-first e deploy GitHub Pages.",
+      "version": "0.1.0",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "painel", "bi", "operacao", "loja"]
+    },
+    {
+      "name": "monitoramento-jornada-gran",
+      "source": "./monitoramento-jornada-gran",
+      "description": "Relatorio semanal de monitoramento de jornada do Gran + GRSM. Cruza batidas RHID com escala mensal e aplica 6 regras de inconsistencia.",
+      "version": "0.1.0",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "rhid", "jornada", "compliance", "ponto"]
+    },
+    {
+      "name": "cotacao-flv-gran",
+      "source": "./cotacao-flv-gran",
+      "description": "Cotacao FLV semanal: compara tabelas dos fornecedores em R$/kg, cherry-picking por item, dispara pedido de tabela via WhatsApp seg+qua de madrugada.",
+      "version": "0.1.0",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "cotacao", "flv", "compras", "ceasa", "whatsapp"]
+    },
+    {
+      "name": "triagem-whatsapp-compras",
+      "source": "./triagem-whatsapp-compras",
+      "description": "Triagem 3x por semana do WhatsApp da Compras (Marize), classifica em 7 categorias, identifica threads abertas, entrega panorama no grupo Super Gran.",
+      "version": "0.1.0",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "triagem", "whatsapp", "compras"]
     }
   ]
 }

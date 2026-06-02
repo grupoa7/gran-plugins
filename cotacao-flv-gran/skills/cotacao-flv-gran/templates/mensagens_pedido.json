@@ -1,0 +1,44 @@
+{
+  "_doc": "Templates de mensagens da rodada de pedido de cotação (skill cotacao-flv-gran). 5 slots horários (03h, 04h, 05h, 06h, 07h) × 2 versões (individual + grupo). Roteamento por fornecedor: se envio_grupo_nome != null no fornecedores.json, slots 03h/04h/05h usam 'grupo' (alvo = grupo), slots 06h/07h escalam pra 'individual' (alvo = titular). Se envio_grupo_nome = null, todos os 5 slots usam 'individual'. Placeholder {nome} é substituído por envio_nome_chamada do fornecedor. A 'inicial' é usada SEMPRE no primeiro disparo da rodada (mesmo que o primeiro slot a rodar seja 04h ou 05h porque o anterior não executou) — evita mensagem de retentativa quando o fornecedor ainda nem foi pingado hoje.",
+  "_campos": {
+    "inicial": "Usada no PRIMEIRO disparo do fornecedor na rodada. Identifica quem é (Hugo do Gran) + desejo de bom dia. Selecionada quando slots_disparados está vazio.",
+    "individual": "5 templates pra chat 1:1 com o titular. Tom: 'meu amigo/minha amiga'. Usados como RETENTATIVA (slot 2+).",
+    "grupo": "3 templates pra grupo. Tom: 'pessoal'. Usados como RETENTATIVA (slot 2+).",
+    "audio_response_individual": "Resposta automática se o fornecedor mandar áudio no chat individual.",
+    "audio_response_grupo": "Resposta automática se mandarem áudio no grupo."
+  },
+  "inicial": {
+    "individual": "Bom dia, {nome}! Aqui é Hugo do Gran Hortifruti. Quando der, me manda a tabela de preços de hoje? Obrigado!",
+    "grupo": "Bom dia, pessoal! Aqui é Hugo do Gran Hortifruti. Quando der, me mandam a tabela de preços de hoje? Obrigado!"
+  },
+  "complemento_apos_retentativa_indevida": {
+    "individual": "Bom dia! Aqui é Hugo do Gran Hortifruti. A mensagem inicial pedindo a tabela ficou travada aqui.",
+    "grupo": "Bom dia! Aqui é Hugo do Gran Hortifruti. A mensagem inicial pedindo a tabela ficou travada aqui."
+  },
+  "individual": {
+    "slot_03h": "Bom dia, {nome}! Aqui é Hugo do Gran Hortifruti. Quando der, me manda a tabela de preços de hoje? Obrigado!",
+    "slot_04h": "Opa {nome}, ainda não cheguei na sua tabela aqui não. Quando der uma brecha aí na correria, me manda? Obrigado!",
+    "slot_05h": "E aí {nome}, sei que tá pegando pesado por aí. Quando puder, me joga a tabela pra não ficar de fora da cotação 🤝",
+    "slot_06h": "{nome}, tô fechando a cotação aqui no Gran. Consegue me passar a tabela agora? Tô só esperando a sua.",
+    "slot_07h": "Meu amigo, tô fechando agora a cotação. Se mandar a tabela rapidinho consigo te incluir 🙏 Parceria é nos dois lados."
+  },
+  "grupo": {
+    "slot_03h": "Bom dia, pessoal! Aqui é Hugo do Gran Hortifruti. Quando der, me mandam a tabela de preços de hoje? Obrigado!",
+    "slot_04h": "Opa pessoal, ainda não cheguei na tabela aqui não. Quando der uma brecha aí na correria, me mandem? Obrigado!",
+    "slot_05h": "E aí pessoal, sei que tá pegando pesado por aí. Quando puderem, me joguem a tabela pra não ficar de fora da cotação 🤝"
+  },
+  "audio_response_individual": "Opa, tô com problema no áudio aqui meu amigo, não tô conseguindo ouvir. Manda por escrito ou foto da tabela?",
+  "audio_response_grupo": "Opa pessoal, tô com problema no áudio aqui, não tô conseguindo ouvir. Mandem por escrito ou foto da tabela?",
+  "_calendario": {
+    "dias_semana": ["segunda", "quarta"],
+    "slots_hora": {
+      "03h": {"alvo_default": "grupo_ou_individual", "tipo_msg": "inicial_ou_slot_03h"},
+      "04h": {"alvo_default": "grupo_ou_individual", "tipo_msg": "inicial_se_primeiro_senao_retry_1"},
+      "05h": {"alvo_default": "grupo_ou_individual", "tipo_msg": "inicial_se_primeiro_senao_retry_2"},
+      "06h": {"alvo_default": "individual", "tipo_msg": "inicial_se_primeiro_senao_retry_3"},
+      "07h": {"alvo_default": "individual", "tipo_msg": "inicial_se_primeiro_senao_retry_4"},
+      "08h": {"alvo_default": null, "tipo_msg": "leitura_final_e_relatorio"}
+    },
+    "janela_total": "03h00 → 08h00 (Salvador/Bahia, UTC-3)"
+  }
+}

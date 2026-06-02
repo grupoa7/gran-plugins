@@ -1,0 +1,162 @@
+{
+  "_doc": "QUADRO FIXO de fornecedores da Cotacao FLV (Gran). FONTE ÚNICA DE VERDADE do roster e dos parâmetros — flv_lib deriva DICIONARIO_FORNECEDORES e CANAL_BUSCA daqui; cotar.py --entradas auto-carrega cada fornecedor cuja tabela for encontrada na pasta da semana. Para incluir um novo fornecedor de forma permanente: (1) escrever o parser em parsers.py, (2) adicionar 4 colunas DESCRICAO/UNIDADE/CONFIANCA/OBS no dicionario e pôr o índice da 1ª (col_dict, 0-based), (3) acrescentar um bloco aqui. Pronto — ele passa a fazer parte de todo Mapa sem precisar relembrar.",
+  "_campos": {
+    "nome": "chave do fornecedor (igual ao 'fornecedor' devolvido pelo parser e ao prefixo das colunas do dicionario)",
+    "parser": "função em parsers.py (carregar_csv_fornecedor recebe nome extra)",
+    "canal": "busca (Hugo retira no CEASA) | entrega (entrega no Gran)",
+    "col_dict": "índice 0-based da coluna DESCRICAO do fornecedor no dicionario_equivalencia_oficial.xlsx",
+    "formato": "rtf | pdf | csv (referência do tipo de tabela)",
+    "arquivo_kw": "palavras-chave (minúsculas) p/ achar a tabela do fornecedor na pasta da semana",
+    "notas": "decisões de compatibilidade salvas"
+  },
+  "fornecedores": [
+    {
+      "nome": "SHIMIZU",
+      "parser": "parse_shimizu",
+      "canal": "entrega",
+      "col_dict": 5,
+      "formato": "pdf",
+      "arquivo_kw": [
+        "shimizu",
+        "consulta produto"
+      ],
+      "notas": "Última coluna do PDF já é R$/kg ou R$/und — não dividir por embalagem. Titular BI: AGRO COMERCIAL SHIMIZU."
+    },
+    {
+      "nome": "RML",
+      "parser": "carregar_csv_fornecedor",
+      "canal": "busca",
+      "col_dict": 9,
+      "formato": "csv",
+      "arquivo_kw": [
+        "rml"
+      ],
+      "notas": "Tabela chega como IMAGEM/foto — Claude transcreve p/ CSV (desc,unidade,preco) antes. Canal busca (CEASA)."
+    },
+    {
+      "nome": "DOCE MEL",
+      "parser": "parse_docemel",
+      "canal": "entrega",
+      "col_dict": 13,
+      "formato": "pdf",
+      "arquivo_kw": [
+        "doce mel",
+        "0%"
+      ],
+      "notas": "PDF Cod|Desc|UN|PrecoKG|PrecoCX — usa Preco KG. Titular BI: TRIELO."
+    },
+    {
+      "nome": "DONOFRIO",
+      "parser": "parse_donofrio",
+      "canal": "entrega",
+      "col_dict": 17,
+      "formato": "rtf",
+      "arquivo_kw": [
+        "donofrio"
+      ],
+      "notas": "Texto/RTF 'Item R$: X,XX UNID'. Titular BI: D ONOFRIO."
+    },
+    {
+      "nome": "HORTIMIX",
+      "parser": "parse_hortimix",
+      "canal": "busca",
+      "col_dict": 21,
+      "formato": "pdf",
+      "arquivo_kw": [
+        "hortimix",
+        "restaurante"
+      ],
+      "notas": "PDF 'Tabela Restaurante' grade 2 colunas. Canal busca. Cítricos: LARANJA->Pera(40), LIMÃO->Tahiti(44), LIMÃO SICILIANO->43, LARANJA LIMA->38, LIMA->Pérsia(42) [confirmado Hugo 26/05], ABACATE->4."
+    },
+    {
+      "nome": "BOA CITRUS",
+      "parser": "parse_boacitrus",
+      "canal": "busca",
+      "col_dict": 25,
+      "formato": "rtf",
+      "arquivo_kw": [
+        "boa citrus",
+        "boacitrus"
+      ],
+      "notas": "Cítricos+abacate, preço POR CAIXA no WhatsApp. Canal busca. Laranja graúda/média -> LARANJA PERA(40) SKU único (cheapest). Lima->Pérsia(42), Pocan->Ponkan(83), Limão->Tahiti(44), Abacate->4. Tabela oficial completa ainda não veio (provisório 6 itens)."
+    },
+    {
+      "nome": "IGARASHI",
+      "parser": "parse_igarashi",
+      "canal": "entrega",
+      "col_dict": 29,
+      "formato": "rtf",
+      "arquivo_kw": [
+        "igarashi"
+      ],
+      "notas": "Texto/RTF, preço POR CAIXA/SACA, peso por item no parser. Plano A→B por calibre (prio). Tomate Saladete=Italiano(138, confirmado Hugo), B7=Salada(139, inferido). Batata saca 25kg (confirmar verbal)."
+    },
+    {
+      "nome": "HR",
+      "parser": "carregar_csv_fornecedor",
+      "canal": "busca",
+      "col_dict": 33,
+      "formato": "csv",
+      "arquivo_kw": [
+        "hortigranjeiros"
+      ],
+      "notas": "HR-Hortigranjeiros Ltda (GP04 CEASA-BA). Pedido MANUSCRITO -> Claude transcreve p/ CSV (desc,unidade,preco). Canal busca. Pesos via boletim CEASA-BA. Pimentao sem cor=verde. Maracuja=azedo. Batata saca 25kg PROVISORIA (confirmar verbal). Pendentes sem casar: Acelga(peso cx), Batata Doce(saca), Alface USA(pes/cx), e graus alt (Batata Diversas, Tomate B-7, Italiano 2a, Vagem fina)."
+    },
+    {
+      "nome": "POTENCIA",
+      "parser": "carregar_csv_fornecedor",
+      "canal": "busca",
+      "col_dict": 37,
+      "formato": "csv",
+      "arquivo_kw": [
+        "potencia"
+      ],
+      "notas": "Potencia Ovos. Canal busca. Preco no CSV ja convertido p/ POR CARTELA (unidade de venda Gran): caixa 30 duzias=360 ovos; C/12 caixa=30 cartelas; Film C/30=10 placas (branco). Mapeados: Gde Verm C12->4972, Gde Bco C12->6153, Gde Film C30->6152(branco), Codorna->6150(placas/cx assumido 10). Granel (Extra/Grande/Verm/Caipira) NAO revende=fora do mapa (food service)."
+    },
+    {
+      "nome": "QUALISUPER",
+      "parser": "carregar_csv_fornecedor",
+      "canal": "busca",
+      "col_dict": 41,
+      "formato": "csv",
+      "arquivo_kw": [
+        "qualisuper"
+      ],
+      "notas": "Qualisuper Tomate (so tomate). Canal busca. Caixa 20/22kg=21kg (CEASA). Mapeados default: Italiano medio @140 -> 138 (excecao do cardapio: medio e o ponto certo p/ granel, graudo so premium pontual); B-6 @170 -> 139 (regra Hugo). Alt taticas nao mapeadas: Italiano graudo @175, B-7 @130."
+    },
+    {
+      "nome": "ALINE",
+      "parser": "carregar_csv_fornecedor",
+      "canal": "busca",
+      "col_dict": 45,
+      "formato": "csv",
+      "arquivo_kw": [
+        "aline"
+      ],
+      "notas": "Aline Alho. Canal busca. So alho (mercearia/charque da tabela original esta fora de escopo FLV). Coluna ATACADO. Caixa 10kg (padrao CEASA). Default ALHO KG 101=Alho Fresco N7 @175 (nacional roxo nobre, 17,50/kg). N8 @180 e N9 @185 sao alt premium nao mapeadas. Sorriso (chines importado) FORA do mix por decisao Hugo - Gran assinatura nacional."
+    },
+    {
+      "nome": "JUAN",
+      "parser": "carregar_csv_fornecedor",
+      "canal": "busca",
+      "col_dict": 49,
+      "formato": "csv",
+      "arquivo_kw": [
+        "juan"
+      ],
+      "notas": "Juan da Cenoura (CEASA). Canal busca. So WhatsApp informal (sem tabela formal) - Hugo pergunta a cada semana, Claude transcreve p/ CSV. Saco/caixa 20kg padrao CEASA (PROVISORIO, confirmar verbal). Default CENOURA 113=saco @165 (8,25/kg, granel comum); caixa @175 (8,75/kg) = alt premium nao mapeada. Default BETERRABA 250 @110 (5,50/kg). Preco oscila diario - revalidar a cada rodada."
+    },
+    {
+      "nome": "JUNIOR_UVA",
+      "parser": "carregar_csv_fornecedor",
+      "canal": "busca",
+      "col_dict": 53,
+      "formato": "csv",
+      "arquivo_kw": [
+        "junior",
+        "uva"
+      ],
+      "notas": "Junior da Uva (CEASA). Canal busca. So uva (Vitoria + Thompson nacional Petrolina/PE - so essas 2 variedades por enquanto). WhatsApp informal sem tabela formal - Hugo pergunta a cada semana, Claude transcreve p/ CSV. Defaults: VITORIA cx 5kg @60 -> 93 (12,00/kg); THOMPSON cx 8kg @150 -> 92 (18,75/kg, default mais barato); THOMPSON cumbuca cx 10x500g=5kg @100 -> 92 alt premium (insumo cumbuca pronta, 20,00/kg). Cumbuca 500g e PROVISORIO (confirmar verbal: se 600g cai p/ 16,67/kg e bate cx 8kg). Preco oscila - revalidar a cada rodada."
+    }
+  ]
+}

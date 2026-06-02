@@ -1,0 +1,7 @@
+{
+  "name": "triagem-whatsapp-compras",
+  "version": "0.1.0",
+  "description": "Triagem 3x por semana do WhatsApp da Compras (Marize), classifica em 7 categorias, entrega panorama no grupo Super Gran.",
+  "author": {"name": "Hugo Gusmao", "email": "hugo@grupoa7.com.br"},
+  "keywords": ["gran","triagem","whatsapp","compras"]
+}

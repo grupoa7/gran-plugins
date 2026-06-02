@@ -1,0 +1,7 @@
+{
+  "name": "survey-gran",
+  "version": "0.12.8",
+  "description": "Survey semanal Gran: relatorio executivo HTML com 8 abas. Faturamento KW via Chrome MCP local (endpoint corrigido + windows-1252 + janelas 15 dias + backup parquet). v0.12.8 adiciona painel Ganhadores e Perdedores no Headline (Top 12 por delta R$ em 3 visoes: Semana YoY, 13 semanas YoY, L4W) com filtro setor + smoke test pos-build (validate_publicado.py).",
+  "author": {"name": "Hugo Gusmao"},
+  "keywords": ["gran","survey","vendas","kw","yoy"]
+}

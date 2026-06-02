@@ -1,0 +1,7 @@
+{
+  "name": "survey-gran-mesa",
+  "version": "2.1.5",
+  "description": "Survey semanal Gran Mesa: relatorio executivo HTML com 7 abas focado nos produtos da equipe de producao (setor GRAN MESA + GRANEL + Padaria Gran). Eixo principal venda (faturamento, margem, mix, ruptura, lift). v2.1.5 inclui hotfix das abas 05/06/07 (fmtBRL) e smoke test pos-build.",
+  "author": {"name": "Hugo Gusmao"},
+  "keywords": ["gran","gran-mesa","survey","vendas","equipe"]
+}

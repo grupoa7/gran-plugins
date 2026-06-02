@@ -1,0 +1,7 @@
+{
+  "name": "auditoria-caixas-gran",
+  "version": "0.1.0",
+  "description": "Auditoria semanal de caixas (PDVs) via sistema KW. Detecta cancelamentos suspeitos, sangrias irregulares e padroes de desvio.",
+  "author": {"name": "Hugo Gusmao", "email": "hugo@grupoa7.com.br"},
+  "keywords": ["gran","auditoria","kw","pdv","compliance"]
+}
