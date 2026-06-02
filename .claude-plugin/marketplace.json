@@ -1,0 +1,21 @@
+{
+  "name": "gran-plugins",
+  "owner": {
+    "name": "Hugo Gusmao",
+    "email": "hugo@grupoa7.com.br"
+  },
+  "metadata": {
+    "description": "Marketplace pessoal do Grupo A7 - skills do Gran Hortifruti, holding e operacao.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "passagem-turno-avaliacao",
+      "source": "./passagem-turno-avaliacao",
+      "description": "Avaliacao automatica de cards de Passagem de Turno do Gran Hortifruti via Pipefy. Roteiros diario (13h20) e semanal (qua 13h35).",
+      "version": "0.1.0",
+      "author": {"name": "Hugo Gusmao"},
+      "keywords": ["gran", "passagem-turno", "pipefy", "lideranca"]
+    }
+  ]
+}

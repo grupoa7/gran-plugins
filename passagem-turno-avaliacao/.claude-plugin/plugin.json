@@ -1,0 +1,7 @@
+{
+  "name": "passagem-turno-avaliacao",
+  "version": "0.1.0",
+  "description": "Avaliacao automatica dos relatorios diarios de Passagem de Turno do Gran Hortifruti via Pipefy. Rituais diario (seg-sab 13h20) + semanal (qua 13h35). Inclui regua v2 (foto escala 0-3, regra ouro de ruptura).",
+  "author": {"name": "Hugo Gusmao", "email": "hugo@grupoa7.com.br"},
+  "keywords": ["gran", "passagem-turno", "pipefy", "lideranca", "ritual", "operacao"]
+}

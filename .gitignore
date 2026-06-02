@@ -1,0 +1,38 @@
+# Dados de runtime - NUNCA versionar
+**/data/
+**/snapshots/
+**/rascunhos/
+**/*.xlsx
+**/*.xls
+**/*.csv
+**/*.parquet
+**/*.db
+**/*.sqlite
+
+# Credenciais e tokens
+**/credentials.json
+**/credentials.yaml
+**/.env
+**/.env.*
+**/*token*
+**/*secret*
+
+# Versoes arquivadas (poluicao no repo)
+**/*.archive-*.md
+**/*.archive-*/
+
+# Logs
+**/*.log
+**/logs/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Outputs intermediarios
+**/output/
+**/build/
+**/dist/
